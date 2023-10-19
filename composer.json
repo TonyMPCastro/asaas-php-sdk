@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "TonyMPCastro\\Asaas\\": "src/"
+            "Ampc\\Asaas\\": "src/"
         }
     },
     "minimum-stability": "dev"

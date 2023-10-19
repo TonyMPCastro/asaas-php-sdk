@@ -11,9 +11,6 @@ namespace Ampc\Asaas;
  * @license    -
  */
 
-// Exception by Adianti-framework
-use Exception;
-
 
 // API's
 use Ampc\Asaas\Adapter\GuzzleHttpAdapter;
