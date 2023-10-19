@@ -19,7 +19,7 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Response;
+
 
 class GuzzleHttpAdapter implements AdapterInterface
 {
@@ -33,7 +33,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     /**
      * Command Response
      *
-     * @var Response|\Psr\Http\Message\ResponseInterface
+     * @var \GuzzleHttp\Psr7\Response|\Psr\Http\Message\ResponseInterface
      */
     protected $response;
 
