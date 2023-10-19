@@ -1,0 +1,21 @@
+{
+    "POST_COBRANCA": {
+        "billingType": "BOLETO",
+        "discount": {
+            "value": 10,
+            "dueDateLimitDays": 0
+        },
+        "interest": {
+            "value": 2
+        },
+        "fine": {
+            "value": 1
+        },
+        "customer": "cus_G7Dvo4iphUNk",
+        "dueDate": "2017-06-10",
+        "value": 100,
+        "description": "Pedido 056984",
+        "externalReference": "056984",
+        "postalService": false
+    }
+}
