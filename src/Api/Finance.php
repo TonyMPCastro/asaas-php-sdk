@@ -24,7 +24,7 @@ class Finance extends \Ampc\Asaas\Api\AbstractApi
      */
     public function getBalance()
     {
-        $balance = $this->adapter->get(sprintf('%s/balance', $this->endpoint));
+        $balance = $this->adapter->get(sprintf('%s/finance/balance', $this->endpoint));
 
         $balance = json_decode($balance);
 
