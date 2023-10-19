@@ -1,5 +1,5 @@
- {
-    "name"       : "AMPC/asaas-php-sdk",
+{
+    "name"       : "ampc/asaas-php-sdk",
     "type"       : "library",
     "description": "Asaas.com PHP API Wrapper",
     "keywords"   : ["Asaas", "API", "Payment SaaS", "Credit Card", "Boleto"],
@@ -7,22 +7,20 @@
     "license"    : "MIT",
     "authors": [
         {
-            "name"    : "AMPC",
+            "name"    : "TonyMPCastro",
             "email"   : "antonio.m.fg38@outlook.com"
         }
     ],
     "require": {
-        "php": ">=7.2.0"
-    },
-    "require-dev": {
-        "guzzlehttp/guzzle" : "~5.0|~6.0"
+        "php": ">=7.2.0",
+        "guzzlehttp/guzzle": "7.9.x-dev"
     },
     "suggest": {
         "guzzlehttp/guzzle" : "To use GuzzleHttpAdapter, require guzzlehttp/guzzle:~5.0|~6.0."
     },
     "autoload": {
         "psr-4": {
-            "AMPC\\Asaas\\": "src/"
+            "TonyMPCastro\\Asaas\\": "src/"
         }
     },
     "minimum-stability": "dev"

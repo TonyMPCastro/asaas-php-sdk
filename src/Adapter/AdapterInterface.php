@@ -1,5 +1,5 @@
 <?php
-namespace AMPC\Asaas\Adapter;
+namespace Ampc\Asaas\Adapter;
 /**
  * Standard page Adapter for Assas
  *
