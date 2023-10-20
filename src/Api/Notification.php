@@ -31,11 +31,17 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notifications = json_decode($notifications);
 
+        if (!empty($notifications->erro) or ($notifications->erro == true)) {
+
+            return $notifications;
+        }
+
         $this->extractMeta($notifications);
 
-        return array_map(function($notification)
-        {
+        return array_map(function($notification){
+
             return new NotificationEntity($notification);
+
         }, $notifications->data);
     }
 
@@ -50,6 +56,11 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
         $notification = $this->adapter->get(sprintf('%s/notifications/%s', $this->endpoint, $id));
 
         $notification = json_decode($notification);
+
+        if (!empty($notification->erro) or ($notification->erro == true)) {
+
+            return $notification;
+        }
 
         return new NotificationEntity($notification->customer);
     }
@@ -66,6 +77,11 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
         $notifications = $this->adapter->get(sprintf('%s/customers/%s/notifications?%s', $this->endpoint, $customerId, http_build_query($filters)));
 
         $notifications = json_decode($notifications);
+
+        if (!empty($notifications->erro) or ($notifications->erro == true)) {
+
+            return $notifications;
+        }
 
         $this->extractMeta($notifications);
 
@@ -87,6 +103,11 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
+        if (!empty($notification->erro) or ($notification->erro == true)) {
+
+            return $notification;
+        }
+
         return new NotificationEntity($notification);
     }
 
@@ -103,6 +124,11 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
+        if (!empty($notification->erro) or ($notification->erro == true)) {
+
+            return $notification;
+        }
+
         return new NotificationEntity($notification);
     }
 
@@ -110,9 +136,19 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
      * Delete Notification By Id
      *
      * @param  string|int  $id  Notification's Id
+     * @return  array
      */
     public function delete($id)
     {
-        $this->adapter->delete(sprintf('%s/notifications/%s', $this->endpoint, $id));
+        $notification = $this->adapter->delete(sprintf('%s/notifications/%s', $this->endpoint, $id));
+
+        $notification = json_decode($notification);
+
+        if (!empty($notification->erro) or ($notification->erro == true)) {
+
+            return $notification;
+        }
+
+        return ['delete' => true, "id"=>(int) $id];
     }
 }

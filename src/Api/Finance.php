@@ -28,6 +28,11 @@ class Finance extends \Ampc\Asaas\Api\AbstractApi
 
         $balance = json_decode($balance);
 
+        if (!empty($balance->erro) or ($balance->erro == true)) {
+
+            return $balance;
+        }
+        
         $this->extractMeta($balance);
 
         return new FinanceEntity($balance);

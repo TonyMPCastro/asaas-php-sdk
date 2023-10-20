@@ -31,11 +31,17 @@ class City extends \Ampc\Asaas\Api\AbstractApi
 
         $cities = json_decode($cities);
 
+        if (!empty($cities->erro) or ($cities->erro == true)) {
+
+            return $cities;
+        }
+        
         $this->extractMeta($cities);
 
         return array_map(function($city)
         {
             return new CityEntity($city->city);
+            
         }, $cities->data);
     }
 
@@ -50,6 +56,11 @@ class City extends \Ampc\Asaas\Api\AbstractApi
         $city = $this->adapter->get(sprintf('%s/cities/%s', $this->endpoint, $id));
 
         $city = json_decode($city);
+
+        if (!empty($city->erro) or ($city->erro == true)) {
+
+            return $city;
+        }
 
         return new CityEntity($city);
     }

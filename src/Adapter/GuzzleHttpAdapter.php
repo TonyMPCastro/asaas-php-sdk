@@ -14,7 +14,6 @@ namespace Ampc\Asaas\Adapter;
 // Exception by Adianti-framework
 use Exception;
 
-
 // GuzzleHttp
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -122,6 +121,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function post($url, $content = ''){
         
         $options = [];
+        
         $options['form_params'] = $content;
 
         try{
@@ -155,16 +155,17 @@ class GuzzleHttpAdapter implements AdapterInterface
         ];
     }
 
-    /**
-     * @throws Exception
-     */
+
     protected function handleError(){
         
         $body = (string) $this->response->getBody();
+        
         $code = (int) $this->response->getStatusCode();
 
         $content = json_decode($body);
 
-        throw new Exception(isset($content->message) ? $content->message : 'Request not processed.', $code);
+        $message = isset($content->message) ? $content->message :'';
+
+        return json_encode(['erro'=>true, 'code'=>$code,'message'=>$message,'body'=>$body]);
     }
 }

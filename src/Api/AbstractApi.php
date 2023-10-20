@@ -18,19 +18,6 @@ use Ampc\Asaas\Entity\Meta;
 
 abstract class AbstractApi
 {
-    /**
-     * Endpoint Produção
-     *
-     * @var string
-     */
-    const ENDPOINT_PRODUCAO = 'https://api.asaas.com/v3';
-
-    /**
-     * Endpoint Homologação
-     *
-     * @var string
-     */
-    const ENDPOINT_HOMOLOGACAO = 'https://sandbox.asaas.com/api/v3';
 
     /**
      * Http Adapter Instance
@@ -55,13 +42,13 @@ abstract class AbstractApi
      * Constructor
      *
      * @param  AdapterInterface  $adapter   Adapter Instance
-     * @param  string            $ambiente  (optional) Ambiente da API
+     * @param  string            $url  (optional) url da API
      */
-    public function __construct(AdapterInterface $adapter, $ambiente = 'producao')
-    {
+    public function __construct(AdapterInterface $adapter, $url){
+        
         $this->adapter = $adapter;
 
-        $this->endpoint = $ambiente == 'homologacao' ? static::ENDPOINT_HOMOLOGACAO : static::ENDPOINT_PRODUCAO;
+        $this->endpoint = $url;
     }
 
     /**

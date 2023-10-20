@@ -28,6 +28,11 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
         $subscriptions = $this->adapter->get(sprintf('%s/subscriptions?%s', $this->endpoint, http_build_query($filters)));
 
         $subscriptions = json_decode($subscriptions);
+        
+        if (!empty($subscriptions->erro) or ($subscriptions->erro == true)) {
+
+            return $subscriptions;
+        }
 
         $this->extractMeta($subscriptions);
 
@@ -48,6 +53,11 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
         $subscription = $this->adapter->get(sprintf('%s/subscriptions/%s', $this->endpoint, $id));
 
         $subscription = json_decode($subscription);
+        
+        if (!empty($subscription->erro) or ($subscription->erro == true)) {
+
+            return $subscription;
+        }
 
         return new SubscriptionEntity($subscription);
     }
@@ -64,6 +74,11 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
         $subscriptions = $this->adapter->get(sprintf('%s/customers/%s/subscriptions?%s', $this->endpoint, $customerId, http_build_query($filters)));
 
         $subscriptions = json_decode($subscriptions);
+
+        if (!empty($subscriptions->erro) or ($subscriptions->erro == true)) {
+
+            return $subscriptions;
+        }
 
         $this->extractMeta($subscriptions);
 
@@ -84,6 +99,11 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
         $subscription = $this->adapter->post(sprintf('%s/subscriptions', $this->endpoint), $data);
 
         $subscription = json_decode($subscription);
+        
+        if (!empty($subscription->erro) or ($subscription->erro == true)) {
+
+            return $subscription;
+        }
 
         return new SubscriptionEntity($subscription);
     }
@@ -100,6 +120,11 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
         $subscription = $this->adapter->post(sprintf('%s/subscriptions/%s', $this->endpoint, $id), $data);
 
         $subscription = json_decode($subscription);
+        
+        if (!empty($subscription->erro) or ($subscription->erro == true)) {
+
+            return $subscription;
+        }
 
         return new SubscriptionEntity($subscription);
     }
@@ -111,6 +136,15 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
      */
     public function delete($id)
     {
-        $this->adapter->delete(sprintf('%s/subscriptions/%s', $this->endpoint, $id));
+        $subscription = $this->adapter->delete(sprintf('%s/subscriptions/%s', $this->endpoint, $id));
+
+        $subscription = json_decode($subscription);
+
+        if (!empty($subscription->erro) or ($subscription->erro == true)) {
+
+            return $subscription;
+        }
+
+        return ['delete' => true, "id"=>(int) $id];
     }
 }

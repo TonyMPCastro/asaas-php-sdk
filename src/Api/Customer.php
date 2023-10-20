@@ -28,12 +28,18 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
         $customers = $this->adapter->get(sprintf('%s/customers?%s', $this->endpoint, http_build_query($filters)));
 
         $customers = json_decode($customers);
+     
+        if (!empty($customers->erro) or ($customers->erro == true)) {
+
+            return $customers;
+        }
 
         $this->extractMeta($customers);
 
-        return array_map(function($customer)
-        {
+        return array_map(function($customer){
+
             return new CustomerEntity($customer->customer);
+
         }, $customers->data);
     }
 
@@ -49,6 +55,10 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
+        if (!empty($customer->erro) or ($customer->erro == true)) {
+            return $customer;
+        }
+
         return new CustomerEntity($customer);
     }
 
@@ -60,10 +70,14 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
      */
     public function getByEmail($email)
     {
-        foreach($this->getAll(['name' => $email]) as $customer)
-        {
-            if($customer->email == $email)
-            {
+        foreach($this->getAll(['name' => $email]) as $customer){
+
+            if (!empty($customer->erro) or ($customer->erro == true)) {
+
+                return $customer;
+            }
+
+            if($customer->email == $email){
                 return $customer;
             }
         }
@@ -83,6 +97,12 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
+        if (!empty($customer->erro) or ($customer->erro == true)) {
+
+            return $customer;
+        }
+
+
         return new CustomerEntity($customer);
     }
 
@@ -99,6 +119,11 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
+        if (!empty($customer->erro) or ($customer->erro == true)) {
+
+            return $customer;
+        }
+
         return new CustomerEntity($customer);
     }
 
@@ -106,9 +131,19 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
      * Delete Customer By Id
      *
      * @param  string|int  $id  Customer Id
+     * @return  array
      */
     public function delete($id)
     {
-        $this->adapter->delete(sprintf('%s/customers/%s', $this->endpoint, $id));
+       $customer = $this->adapter->delete(sprintf('%s/customers/%s', $this->endpoint, $id));
+
+       json_decode($customer);
+
+       if (!empty($customer->erro) or ($customer->erro == true)) {
+
+            return $customer;
+        }
+
+        return ['delete' => true, "id"=>(int) $id];
     }
 }

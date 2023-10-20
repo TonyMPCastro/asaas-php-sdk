@@ -31,25 +31,25 @@ class Asaas{
     protected $adapter;
 
     /**
-     * Ambiente da API
+     * url da API
      *
      * @var  string
      */
-    protected $ambiente;
+    protected $url;
 
     /**
      * Constructor
      *
      * @param  string                $token   Access Token
-     * @param  string            $ambiente  (optional) Ambiente da API
+     * @param  string            $url  (optional) url da API
      */
-    public function __construct($token, $ambiente = 'producao'){
+    public function __construct($token, $url = 'https://sandbox.asaas.com/api/v3'){
 
         $adapter = new GuzzleHttpAdapter($token);
 
         $this->adapter = $adapter;
 
-        $this->ambiente = $ambiente;
+        $this->url = $url;
     }
 
     /**
@@ -59,7 +59,7 @@ class Asaas{
      */
     public function customer()
     {
-        return new Customer($this->adapter, $this->ambiente);
+        return new Customer($this->adapter, $this->url);
     }
 
     /**
@@ -69,7 +69,7 @@ class Asaas{
      */
     public function subscription()
     {
-        return new Subscription($this->adapter, $this->ambiente);
+        return new Subscription($this->adapter, $this->url);
     }
 
     /**
@@ -79,7 +79,7 @@ class Asaas{
      */
     public function payment()
     {
-        return new Payment($this->adapter, $this->ambiente);
+        return new Payment($this->adapter, $this->url);
     }
 
     /**
@@ -89,7 +89,7 @@ class Asaas{
      */
     public function notification()
     {
-        return new Notification($this->adapter, $this->ambiente);
+        return new Notification($this->adapter, $this->url);
     }
 
     /**
@@ -99,7 +99,7 @@ class Asaas{
      */
     public function city()
     {
-        return new City($this->adapter, $this->ambiente);
+        return new City($this->adapter, $this->url);
     }
 
 
@@ -110,6 +110,6 @@ class Asaas{
      */
     public function finance()
     {
-        return new Finance($this->adapter, $this->ambiente);
+        return new Finance($this->adapter, $this->url);
     }
 }

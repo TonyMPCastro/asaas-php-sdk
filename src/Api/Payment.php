@@ -30,6 +30,11 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
+        if (!empty($payments->erro) or ($payments->erro == true)) {
+
+            return $payments;
+        }
+
         $this->extractMeta($payments);
 
         return array_map(function($payment)
@@ -50,6 +55,11 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
+        if (!empty($payment->erro) or ($payment->erro == true)) {
+
+            return $payment;
+        }
+
         return new PaymentEntity($payment);
     }
 
@@ -65,6 +75,11 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
         $payments = $this->adapter->get(sprintf('%s/customers/%s/payments?%s', $this->endpoint, $customerId, http_build_query($filters)));
 
         $payments = json_decode($payments);
+
+        if (!empty($payments->erro) or ($payments->erro == true)) {
+
+            return $payments;
+        }
 
         $this->extractMeta($payments);
 
@@ -89,6 +104,11 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
+        if (!empty($payments->erro) or ($payments->erro == true)) {
+
+            return $payments;
+        }
+
         $this->extractMeta($payments);
 
         return array_map(function($payment)
@@ -109,6 +129,11 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
+        if (!empty($payment->erro) or ($payment->erro == true)) {
+
+            return $payment;
+        }
+
         return new PaymentEntity($payment);
     }
 
@@ -125,6 +150,11 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
+        if (!empty($payment->erro) or ($payment->erro == true)) {
+
+            return $payment;
+        }
+
         return new PaymentEntity($payment);
     }
 
@@ -132,9 +162,19 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
      * Delete Payment By Id
      *
      * @param  string|int  $id  Payment Id
+     * @return  array
      */
     public function delete($id)
     {
-        $this->adapter->delete(sprintf('%s/payments/%s', $this->endpoint, $id));
+        $payment = $this->adapter->delete(sprintf('%s/payments/%s', $this->endpoint, $id));
+
+        $payment = json_decode($payment);
+
+        if (!empty($payment->erro) or ($payment->erro == true)) {
+
+            return $payment;
+        }
+
+        return ['delete' => true, "id"=>(int) $id];
     }
 }
