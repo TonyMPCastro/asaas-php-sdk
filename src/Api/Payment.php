@@ -30,7 +30,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (!empty($payments->erro) or ($payments->erro == true)) {
+        if (!empty($payments->erro) or !empty($payments->errors) or ($payments->erro == true)) {
 
             return $payments;
         }
@@ -55,7 +55,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or ($payment->erro == true)) {
+        if (!empty($payment->erro) or !empty($payment->errors) or ($payment->erro == true)) {
 
             return $payment;
         }
@@ -76,7 +76,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (!empty($payments->erro) or ($payments->erro == true)) {
+        if (!empty($payments->erro) or !empty($payments->errors) or ($payments->erro == true)) {
 
             return $payments;
         }
@@ -104,7 +104,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (!empty($payments->erro) or ($payments->erro == true)) {
+        if (!empty($payments->erro) or !empty($payments->errors) or ($payments->erro == true)) {
 
             return $payments;
         }
@@ -129,7 +129,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or ($payment->erro == true)) {
+        if (!empty($payment->erro) or !empty($payment->errors) or ($payment->erro == true)) {
 
             return $payment;
         }
@@ -150,7 +150,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or ($payment->erro == true)) {
+        if (!empty($payment->erro) or !empty($payment->errors) or ($payment->erro == true)) {
 
             return $payment;
         }
@@ -170,7 +170,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or ($payment->erro == true)) {
+        if (!empty($payment->erro) or !empty($payment->errors) or ($payment->erro == true)) {
 
             return $payment;
         }

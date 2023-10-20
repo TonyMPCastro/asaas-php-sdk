@@ -57,7 +57,7 @@ class City extends \Ampc\Asaas\Api\AbstractApi
 
         $city = json_decode($city);
 
-        if (!empty($city->erro) or ($city->erro == true)) {
+        if (!empty($city->erro) or !empty($city->errors) or ($city->erro == true)) {
 
             return $city;
         }
