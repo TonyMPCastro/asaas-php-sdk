@@ -39,10 +39,15 @@ require 'vendor/autoload.php';
 
 use Ampc\Asaas\Asaas;
 
-//Caso queira usar a API em modo teste basta especificar o `ambiente` no momento em que o cliente é instanciado.
-// Instancie o cliente Asaas usando O token de acesso da Api e o Escolhendo o Ambiente.
-// Obs.: Caso não seja informado o segundo parâmetro a API entra em modo de produção
-$asaas = new Asaas('seu_token_de_acesso','producao|homologacao');
+//Caso queira usar a API em modo teste basta não passar a url no momento em que o cliente é instanciado.
+
+// Instancie o cliente Asaas usando O token de acesso da Api e a URL do ambbiente que deseja ultilizar.
+
+// Obs.: Caso não seja informado o segundo parâmetro a API entra em modo de Homologação
+$token = 'seu_token_de_acesso';
+$url = 'https://sandbox.asaas.com/api/v3';
+
+$asaas = new Asaas($token,$url);
 
 ```
 
@@ -164,6 +169,20 @@ $cidades = $asaas->city()->getAll(array $filtros);
 
 // Retorna os dados da cidade de acordo com o Id
 $action123 = $asaas->city()->getById(123);
+```
+
+
+
+Erro
+------
+
+```php
+
+// Caso aconteça algum erro durante a consulta o parametro erro do objeto vem TRUE
+$saldo = $asaas->finance()->getBalance();
+
+print_r($saldo);//{"erro":true,"code":404,"body":"HTTP Status 404 \u2013 N\u00e3o Encontrado"}
+
 ```
 
 Documentação Oficial
