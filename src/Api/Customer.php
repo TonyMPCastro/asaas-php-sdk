@@ -97,7 +97,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (!empty($customer->erro) or !empty($customer->errors)  or ($customer->erro == true)) {
+        if (!empty($customer->erro) or !empty($customer->errors)) {
 
             return $customer;
         }
@@ -119,7 +119,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (!empty($customer->erro) or !empty($customer->errors)  or ($customer->erro == true)) {
+        if (!empty($customer->erro) or !empty($customer->errors)) {
 
             return $customer;
         }
@@ -139,7 +139,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
        json_decode($customer);
 
-       if (!empty($customer->erro) or !empty($customer->errors)  or ($customer->erro == true)) {
+       if (!empty($customer->erro) or !empty($customer->errors)) {
 
             return $customer;
         }

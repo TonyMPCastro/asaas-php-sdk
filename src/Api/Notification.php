@@ -31,7 +31,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notifications = json_decode($notifications);
 
-        if (!empty($notifications->erro) or !empty($notifications->errors) or ($notifications->erro == true)) {
+        if (!empty($notifications->erro) or !empty($notifications->errors)) {
 
             return $notifications;
         }
@@ -57,7 +57,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors) or ($notification->erro == true)) {
+        if (!empty($notification->erro) or !empty($notification->errors)) {
 
             return $notification;
         }
@@ -78,7 +78,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notifications = json_decode($notifications);
 
-        if (!empty($notifications->erro) or !empty($notifications->errors) or ($notifications->erro == true)) {
+        if (!empty($notifications->erro) or !empty($notifications->errors)) {
 
             return $notifications;
         }
@@ -103,7 +103,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors) or ($notification->erro == true)) {
+        if (!empty($notification->erro) or !empty($notification->errors)) {
 
             return $notification;
         }
@@ -124,7 +124,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors) or ($notification->erro == true)) {
+        if (!empty($notification->erro) or !empty($notification->errors)) {
 
             return $notification;
         }
@@ -144,7 +144,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors)  or ($notification->erro == true)) {
+        if (!empty($notification->erro) or !empty($notification->errors)) {
 
             return $notification;
         }

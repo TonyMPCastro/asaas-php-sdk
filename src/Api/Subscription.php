@@ -29,7 +29,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscriptions = json_decode($subscriptions);
         
-        if (!empty($subscriptions->erro) or !empty($subscriptions->errors) or ($subscriptions->erro == true)) {
+        if (!empty($subscriptions->erro) or !empty($subscriptions->errors)) {
 
             return $subscriptions;
         }
@@ -54,7 +54,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
         
-        if (!empty($subscription->erro) or !empty($subscription->errors) or ($subscription->erro == true)) {
+        if (!empty($subscription->erro) or !empty($subscription->errors)) {
 
             return $subscription;
         }
@@ -75,7 +75,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscriptions = json_decode($subscriptions);
 
-        if (!empty($subscriptions->erro) or !empty($subscription->errors) or ($subscriptions->erro == true)) {
+        if (!empty($subscriptions->erro) or !empty($subscription->errors)) {
 
             return $subscriptions;
         }
@@ -100,7 +100,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
         
-        if (!empty($subscription->erro) or !empty($subscription->errors) or ($subscription->erro == true)) {
+        if (!empty($subscription->erro) or !empty($subscription->errors)) {
 
             return $subscription;
         }
@@ -121,7 +121,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
         
-        if (!empty($subscription->erro) or !empty($subscription->errors) or ($subscription->erro == true)) {
+        if (!empty($subscription->erro) or !empty($subscription->errors)) {
 
             return $subscription;
         }
@@ -140,7 +140,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
 
-        if (!empty($subscription->erro) or !empty($subscription->errors) or ($subscription->erro == true)) {
+        if (!empty($subscription->erro) or !empty($subscription->errors)) {
 
             return $subscription;
         }
