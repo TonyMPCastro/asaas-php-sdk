@@ -29,7 +29,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customers = json_decode($customers);
      
-        if (!empty($customers->erro) or !empty($customers->errors) or ($customers->erro == true)) {
+        if (!empty($customers->erro) or !empty($customers->errors)) {
 
             return $customers;
         }
@@ -55,7 +55,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (!empty($customer->erro) or !empty($customer->errors) or ($customer->erro == true)) {
+        if (!empty($customer->erro) or !empty($customer->errors)) {
             return $customer;
         }
 
@@ -72,7 +72,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     {
         foreach($this->getAll(['name' => $email]) as $customer){
 
-            if (!empty($customer->erro) or !empty($customer->errors)  or ($customer->erro == true)) {
+            if (!empty($customer->erro) or !empty($customer->errors)) {
 
                 return $customer;
             }
