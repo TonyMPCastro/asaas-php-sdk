@@ -117,6 +117,17 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
     /**
      * @var string
      */
+    public $paymentDate;
+
+
+        /**
+     * @var string
+     */
+    public $clientPaymentDate;
+
+    /**
+     * @var string
+     */
     public $creditCardExpiryMonth;
 
     /**
