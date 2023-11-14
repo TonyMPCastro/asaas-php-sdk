@@ -29,7 +29,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscriptions = json_decode($subscriptions);
         
-        if (!empty($subscriptions->erro) or !empty($subscriptions->errors)) {
+        if (property_exists($subscriptions, 'erro') or property_exists($subscriptions, 'errors')) {
 
             return $subscriptions;
         }
@@ -54,7 +54,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
         
-        if (!empty($subscription->erro) or !empty($subscription->errors)) {
+        if (property_exists($subscription, 'erro') or property_exists($subscription, 'errors')) {
 
             return $subscription;
         }
@@ -75,7 +75,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscriptions = json_decode($subscriptions);
 
-        if (!empty($subscriptions->erro) or !empty($subscription->errors)) {
+        if (property_exists($subscriptions, 'erro') or property_exists($subscriptions, 'errors')) {
 
             return $subscriptions;
         }
@@ -100,7 +100,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
         
-        if (!empty($subscription->erro) or !empty($subscription->errors)) {
+        if (property_exists($subscription, 'erro') or property_exists($subscription, 'errors')) {
 
             return $subscription;
         }
@@ -121,7 +121,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
         
-        if (!empty($subscription->erro) or !empty($subscription->errors)) {
+        if (property_exists($subscription, 'erro') or property_exists($subscription, 'errors')) {
 
             return $subscription;
         }
@@ -140,7 +140,7 @@ class Subscription extends \Ampc\Asaas\Api\AbstractApi{
 
         $subscription = json_decode($subscription);
 
-        if (!empty($subscription->erro) or !empty($subscription->errors)) {
+        if (property_exists($subscription, 'erro') or property_exists($subscription, 'errors')) {
 
             return $subscription;
         }

@@ -30,7 +30,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (!empty($payments->erro) or !empty($payments->errors)) {
+        if (property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
 
             return $payments;
         }
@@ -55,7 +55,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or !empty($payment->errors)) {
+        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -76,7 +76,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (!empty($payments->erro) or !empty($payments->errors)) {
+        if (property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
 
             return $payments;
         }
@@ -104,7 +104,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (!empty($payments->erro) or !empty($payments->errors)) {
+        if (property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
 
             return $payments;
         }
@@ -129,7 +129,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or !empty($payment->errors)) {
+        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -150,7 +150,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or !empty($payment->errors)) {
+        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -170,7 +170,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (!empty($payment->erro) or !empty($payment->errors)) {
+        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }

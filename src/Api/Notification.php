@@ -31,7 +31,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notifications = json_decode($notifications);
 
-        if (!empty($notifications->erro) or !empty($notifications->errors)) {
+        if (property_exists($notifications, 'erro') or property_exists($notifications, 'errors')) {
 
             return $notifications;
         }
@@ -57,7 +57,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors)) {
+        if (property_exists($notification, 'erro') or property_exists($notification, 'errors')) {
 
             return $notification;
         }
@@ -78,7 +78,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notifications = json_decode($notifications);
 
-        if (!empty($notifications->erro) or !empty($notifications->errors)) {
+        if (property_exists($notifications, 'erro') or property_exists($notifications, 'errors')) {
 
             return $notifications;
         }
@@ -103,7 +103,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors)) {
+        if (property_exists($notification, 'erro') or property_exists($notification, 'errors')) {
 
             return $notification;
         }
@@ -124,7 +124,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors)) {
+        if (property_exists($notification, 'erro') or property_exists($notification, 'errors')) {
 
             return $notification;
         }
@@ -144,7 +144,7 @@ class Notification extends \Ampc\Asaas\Api\AbstractApi
 
         $notification = json_decode($notification);
 
-        if (!empty($notification->erro) or !empty($notification->errors)) {
+        if (property_exists($notification, 'erro') or property_exists($notification, 'errors')) {
 
             return $notification;
         }

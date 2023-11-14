@@ -28,7 +28,7 @@ class Finance extends \Ampc\Asaas\Api\AbstractApi
 
         $balance = json_decode($balance);
 
-        if (!empty($balance->erro) or !empty($balance->errors)) {
+        if (property_exists($balance, 'erro') or property_exists($balance, 'errors')) {
 
             return $balance;
         }

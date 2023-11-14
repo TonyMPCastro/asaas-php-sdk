@@ -29,7 +29,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customers = json_decode($customers);
      
-        if (!empty($customers->erro) or !empty($customers->errors)) {
+        if (property_exists($customers, 'erro') or property_exists($customers, 'errors')) {
 
             return $customers;
         }
@@ -55,7 +55,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (!empty($customer->erro) or !empty($customer->errors)) {
+        if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
             return $customer;
         }
 
@@ -72,7 +72,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     {
         foreach($this->getAll(['name' => $email]) as $customer){
 
-            if (!empty($customer->erro) or !empty($customer->errors)) {
+            if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
                 return $customer;
             }
@@ -97,7 +97,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (!empty($customer->erro) or !empty($customer->errors)) {
+        if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
             return $customer;
         }
@@ -119,7 +119,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (!empty($customer->erro) or !empty($customer->errors)) {
+        if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
             return $customer;
         }
@@ -137,9 +137,9 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     {
        $customer = $this->adapter->delete(sprintf('%s/customers/%s', $this->endpoint, $id));
 
-       json_decode($customer);
+       $customer = json_decode($customer);
 
-       if (!empty($customer->erro) or !empty($customer->errors)) {
+       if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
             return $customer;
         }

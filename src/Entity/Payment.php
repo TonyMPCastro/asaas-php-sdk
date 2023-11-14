@@ -120,6 +120,11 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
     public $paymentDate;
 
 
+         /**
+     * @var string
+     */
+    public $confirmedDate;
+
         /**
      * @var string
      */
