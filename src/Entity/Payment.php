@@ -119,6 +119,21 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
      */
     public $paymentDate;
 
+    
+    /**
+     * @var string
+     */
+    public $dateCreated;
+
+       /**
+     * @var string
+     */
+    public $installment ;
+
+       /**
+     * @var string
+     */
+    public $bankSlipUrl;
 
          /**
      * @var string
@@ -214,6 +229,12 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
      * @var string
      */
     public $creditCardHolderMobilePhoneDDD;
+
+
+      /**
+     * @var string
+     */
+    public $originalDueDate;
 
     /**
      * @param  string  $dueDate

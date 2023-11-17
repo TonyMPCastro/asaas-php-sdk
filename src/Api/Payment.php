@@ -40,6 +40,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
         return array_map(function($payment)
         {
             return new PaymentEntity($payment);
+            
         }, $payments->data);
     }
 
