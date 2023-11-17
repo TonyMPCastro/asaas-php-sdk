@@ -72,24 +72,25 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
      * Get Payment Book Installments By Id
      *
      * @param   int  $id  Installments Id
-     * @return  InstallmentsEntity
+     * @return  string 
      */
     public function getPaymentBookById($id)
     {
         $installment = $this->adapter->get(sprintf('%s/installments/%s/paymentBook', $this->endpoint, $id));
 
-        $installment = json_decode($installment);
+        $installmentt = json_decode($installment);
 
-        if (property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
+        if (is_object($installmentt)) {
 
-            return $installment;
+            if (property_exists($installmentt, 'erro') or property_exists($installmentt, 'errors')) {
+
+                return $installmentt;
+
+            }
         }
-
-        return new InstallmentsEntity($installment);
+   
+        return $installment;
     }
-
-
-
 
     
 }

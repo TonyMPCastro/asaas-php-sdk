@@ -74,6 +74,8 @@ class GuzzleHttpAdapter implements AdapterInterface
         return $this->response->getBody();
     }
 
+
+
     /**
      * {@inheritdoc}
      */
