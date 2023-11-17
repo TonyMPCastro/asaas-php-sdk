@@ -21,6 +21,7 @@ use Ampc\Asaas\Api\Payment;
 use Ampc\Asaas\Api\Notification;
 use Ampc\Asaas\Api\City;
 use Ampc\Asaas\Api\Finance;
+use Ampc\Asaas\Api\Installments;
 
 class Asaas{
     /**
@@ -111,5 +112,16 @@ class Asaas{
     public function finance()
     {
         return new Finance($this->adapter, $this->url);
+    }
+
+
+    /**
+     * Get payment endpoint
+     *
+     * @return  Installments
+     */
+    public function installment()
+    {
+        return new Installments($this->adapter, $this->url);
     }
 }
