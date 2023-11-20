@@ -64,6 +64,27 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
         return new PaymentEntity($payment);
     }
 
+
+     /**
+     * Get Payment By Id
+     *
+     * @param   int  $id  Payment Id
+     * @return  PaymentEntity
+     */
+    public function getNumberBoletoById($id)
+    {
+        $payment = $this->adapter->get(sprintf('%s/payments/%s/identificationField', $this->endpoint, $id));
+
+        $payment = json_decode($payment);
+
+        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
+
+            return $payment;
+        }
+
+        return new PaymentEntity($payment);
+    }
+
     /**
      * Get Payments By Customer Id
      *

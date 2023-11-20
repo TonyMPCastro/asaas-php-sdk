@@ -95,6 +95,16 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
     public $boletoUrl;
 
     /**
+     * @var string
+     */
+    public $barCode;
+
+    /**
+     * @var string
+     */
+    public $identificationField;
+
+    /**
      * @var int
      */
     public $installmentCount;
