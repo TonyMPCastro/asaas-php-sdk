@@ -197,6 +197,6 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
             return $payment;
         }
 
-        return ['delete' => true, "id"=>(int) $id];
+        return $payment;
     }
 }

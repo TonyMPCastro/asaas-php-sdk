@@ -92,5 +92,25 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
         return $installment;
     }
 
+    /**
+     * Delete Installments By Id
+     *
+     * @param  string|int  $id  Payment Id
+     * @return  array
+     */
+    public function delete($id){
+        
+        $installment = $this->adapter->delete(sprintf('%s/installments/%s', $this->endpoint, $id));
+
+        $installment = json_decode($installment);
+
+        if (property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
+
+            return $installment;
+        }
+
+        return $installment;
+    }
+
     
 }

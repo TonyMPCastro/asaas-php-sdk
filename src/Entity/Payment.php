@@ -54,6 +54,24 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
      */
     public $interestValue;
 
+     /**
+     * @var object
+     */
+    public $discount;
+
+
+     /**
+     * @var object
+     */
+    public $fine;
+
+
+     /**
+     * @var object
+     */
+    public $interest;
+
+
     /**
      * @var float
      */
