@@ -17,6 +17,8 @@ namespace Ampc\Asaas\Api;
 // Entities
 use Ampc\Asaas\Entity\Installments as InstallmentsEntity;
 
+use Ampc\Asaas\Entity\Payment as PaymentEntity;
+
 class Installments extends \Ampc\Asaas\Api\AbstractApi
 {
 
@@ -66,6 +68,34 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
 
         return new InstallmentsEntity($installment);
     }
+
+
+      /**
+     * Get Installments By Id
+     *
+     * @param   int  $id  Installments Id
+     * @return  array
+     */
+    public function getByIdPayments($id, array $filters = [])
+    {
+        $installment = $this->adapter->get(sprintf('%s/installments/%s/payments?%s', $this->endpoint, $id, http_build_query($filters)));
+
+        $installment = json_decode($installment);
+
+        if (property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
+
+            return $installment;
+        }
+
+        $this->extractMeta($installment);
+
+        return array_map(function($installment)
+        {
+            return new PaymentEntity($installment);
+            
+        }, $installment->data);
+    }
+
 
 
     /**
