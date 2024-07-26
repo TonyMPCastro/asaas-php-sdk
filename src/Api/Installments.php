@@ -34,7 +34,7 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
 
         $installments = json_decode($installments);
 
-        if (property_exists($installments, 'erro') or property_exists($installments, 'errors')) {
+        if (empty($installments) or property_exists($installments, 'erro') or property_exists($installments, 'errors')) {
 
             return $installments;
         }
@@ -61,7 +61,7 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
 
         $installment = json_decode($installment);
 
-        if (property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
+        if (empty( $installment) or property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
 
             return $installment;
         }
@@ -82,7 +82,7 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
 
         $installment = json_decode($installment);
 
-        if (property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
+        if (empty( $installment) or property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
 
             return $installment;
         }
@@ -112,7 +112,7 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
 
         if (is_object($installmentt)) {
 
-            if (property_exists($installmentt, 'erro') or property_exists($installmentt, 'errors')) {
+            if (empty( $installment) or property_exists($installmentt, 'erro') or property_exists($installmentt, 'errors')) {
 
                 return $installmentt;
 
@@ -134,7 +134,7 @@ class Installments extends \Ampc\Asaas\Api\AbstractApi
 
         $installment = json_decode($installment);
 
-        if (property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
+        if (empty( $installment) or property_exists($installment, 'erro') or property_exists($installment, 'errors')) {
 
             return $installment;
         }

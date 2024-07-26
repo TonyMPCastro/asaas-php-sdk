@@ -30,7 +30,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
+        if (empty($payments) or property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
 
             return $payments;
         }
@@ -56,7 +56,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
+        if (empty($payment) or property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -77,7 +77,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
+        if (empty($payment) or property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -98,7 +98,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
+        if (empty($payments) or property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
 
             return $payments;
         }
@@ -126,7 +126,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payments = json_decode($payments);
 
-        if (property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
+        if (empty($payments) or property_exists($payments, 'erro') or property_exists($payments, 'errors')) {
 
             return $payments;
         }
@@ -151,7 +151,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
+        if (empty($payment) or property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -172,7 +172,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
+        if (empty($payment) or property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }
@@ -192,7 +192,7 @@ class Payment extends \Ampc\Asaas\Api\AbstractApi
 
         $payment = json_decode($payment);
 
-        if (property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
+        if (empty($payment) or property_exists($payment, 'erro') or property_exists($payment, 'errors')) {
 
             return $payment;
         }

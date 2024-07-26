@@ -29,7 +29,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customers = json_decode($customers);
      
-        if (property_exists($customers, 'erro') or property_exists($customers, 'errors')) {
+        if (empty($customers) or property_exists($customers, 'erro') or property_exists($customers, 'errors')) {
 
             return $customers;
         }
@@ -55,7 +55,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
+        if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
             return $customer;
         }
 
@@ -72,7 +72,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     {
         foreach($this->getAll(['name' => $email]) as $customer){
 
-            if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
+            if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
                 return $customer;
             }
@@ -97,7 +97,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
+        if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
             return $customer;
         }
@@ -119,7 +119,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
         $customer = json_decode($customer);
 
-        if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
+        if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
             return $customer;
         }
@@ -139,7 +139,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
 
        $customer = json_decode($customer);
 
-       if (property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
+       if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
 
             return $customer;
         }

@@ -31,7 +31,7 @@ class City extends \Ampc\Asaas\Api\AbstractApi
 
         $cities = json_decode($cities);
 
-        if (property_exists($cities, 'erro') or property_exists($cities, 'errors')) {
+        if (empty($cities) or property_exists($cities, 'erro') or property_exists($cities, 'errors')) {
 
             return $cities;
         }
@@ -57,7 +57,7 @@ class City extends \Ampc\Asaas\Api\AbstractApi
 
         $city = json_decode($city);
 
-        if (property_exists($city, 'erro') or property_exists($city, 'errors')) {
+        if (empty($city) or property_exists($city, 'erro') or property_exists($city, 'errors')) {
 
             return $city;
         }
