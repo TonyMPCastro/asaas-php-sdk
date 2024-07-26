@@ -7,7 +7,7 @@ Instalação
 A biblioteca pode ser instalada usando o gerenciador de dependência composer. Para instalar a biblioteca e todas suas dependências execute:
 
 ```bash
-composer require ampv/asaas-php-sdk:1.0.0
+composer require ampv/asaas-php-sdk:1.1.2
 ```
 
 Para consumir o webservice é preciso usar um cliente REST que será responsável pela comunicação ao WebService. Por padrão a biblioteca inclui é GuzzleHttp.
