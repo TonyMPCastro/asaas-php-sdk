@@ -59,6 +59,10 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
      */
     public $discount;
 
+    /**
+     * @var object
+     */
+    public $creditCard;
 
      /**
      * @var object
@@ -132,15 +136,15 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
      */
     public $installmentValue;
 
-    /**
-     * @var string
-     */
-    public $creditCardHolderName;
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderName;
 
-    /**
-     * @var string
-     */
-    public $creditCardNumber;
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardNumber;
 
     /**
      * @var string
@@ -173,90 +177,90 @@ final class Payment extends \Ampc\Asaas\Entity\AbstractEntity
      */
     public $clientPaymentDate;
 
-    /**
-     * @var string
-     */
-    public $creditCardExpiryMonth;
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardExpiryMonth;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardExpiryYear;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardCcv;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderFullName;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderEmail;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderCpfCnpj;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderAddress;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderAddressNumber;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderAddressComplement;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderProvince;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderCity;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderUf;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderPostalCode;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderPhone;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderPhoneDDD;
+
+    // /**
+    //  * @var string
+    //  */
+    // public $creditCardHolderMobilePhone;
 
     /**
      * @var string
      */
-    public $creditCardExpiryYear;
-
-    /**
-     * @var string
-     */
-    public $creditCardCcv;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderFullName;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderEmail;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderCpfCnpj;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderAddress;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderAddressNumber;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderAddressComplement;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderProvince;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderCity;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderUf;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderPostalCode;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderPhone;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderPhoneDDD;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderMobilePhone;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderMobilePhoneDDD;
+    public $externalReference;
 
 
       /**

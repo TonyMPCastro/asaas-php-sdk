@@ -41,7 +41,7 @@ class Asaas{
     /**
      * Constructor
      *
-     * @param  string                $token   Access Token
+     * @param  string            $token   Access Token
      * @param  string            $url  (optional) url da API
      */
     public function __construct($token, $url = 'https://sandbox.asaas.com/api/v3'){
