@@ -27,6 +27,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     {
         $customers = $this->adapter->get(sprintf('%s/customers?%s', $this->endpoint, http_build_query($filters)));
 
+        /*
         $customers = json_decode($customers);
      
         if (empty($customers) or property_exists($customers, 'erro') or property_exists($customers, 'errors')) {
@@ -41,6 +42,10 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
             return new CustomerEntity($customer->customer);
 
         }, $customers->data);
+
+        */
+
+        return $this->resultGetAll($customers, "CustomerEntity", "customer" );
     }
 
     /**
@@ -53,6 +58,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     {
         $customer = $this->adapter->get(sprintf('%s/customers/%s', $this->endpoint, $id));
 
+        /*
         $customer = json_decode($customer);
 
         if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
@@ -60,6 +66,10 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
         }
 
         return new CustomerEntity($customer);
+
+        */
+
+        return $this->resultGenericObject($customer, "CustomerEntity");
     }
 
     /**
@@ -69,20 +79,28 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
      * @return  CustomerEntity|null
      */
     public function getByEmail($email)
-    {
-        foreach($this->getAll(['name' => $email]) as $customer){
+    {   
+        $customers = $this->getAll(['name' => $email]);
 
-            if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
+        $customers_ret = $this->resultGetAll($customers, "CustomerEntity", "customer" );
+        
+        $customer_ret = null;
 
-                return $customer;
-            }
-
-            if($customer->email == $email){
-                return $customer;
-            }
+        if(is_array($customers_ret))
+        {
+            foreach($customers_ret as $customer)
+            {
+                if(is_object($customer))
+                {
+                    if($customer->email == $email)
+                    {
+                        $customer_ret = $customer;
+                    }
+                }
+            } 
         }
-
-        return;
+        
+        return $customer_ret;
     }
 
     /**
@@ -94,7 +112,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     public function create(array $data)
     {
         $customer = $this->adapter->post(sprintf('%s/customers', $this->endpoint), $data);
-
+        /*
         $customer = json_decode($customer);
 
         if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
@@ -102,8 +120,10 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
             return $customer;
         }
 
-
         return new CustomerEntity($customer);
+        */
+        return $this->resultGenericObject($customer, "CustomerEntity");
+
     }
 
     /**
@@ -116,7 +136,7 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
     public function update($id, array $data)
     {
         $customer = $this->adapter->post(sprintf('%s/customers/%s', $this->endpoint, $id), $data);
-
+        /*
         $customer = json_decode($customer);
 
         if (empty($customer) or property_exists($customer, 'erro') or property_exists($customer, 'errors')) {
@@ -125,6 +145,9 @@ class Customer extends \Ampc\Asaas\Api\AbstractApi
         }
 
         return new CustomerEntity($customer);
+        */
+        return $this->resultGenericObject($customer, "CustomerEntity");
+
     }
 
     /**

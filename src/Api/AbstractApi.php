@@ -73,4 +73,69 @@ abstract class AbstractApi
     {
         return $this->meta;
     }
+
+    /**
+     * Get Generic All object
+     *
+     * @param   string  $datas_receve  Data to get api
+     * @param   string  $class  Class of object
+     * @param   string  $var  Var where to object
+     * @return  object|array|null
+     */
+    public function resultGetAll($datas_receve, $class, $var )
+    {   
+        $objects_return = [];
+
+        if(!empty($datas_receve))
+        {
+            $objects_receve = json_decode($datas_receve);
+
+            if(is_object($objects_receve))
+            {
+                if (property_exists($objects_receve, 'erro') or property_exists($objects_receve, 'errors')) {
+                    return $objects_return;
+                }
+
+                $this->extractMeta($objects_receve);
+
+                $objects_return =  array_map(function($object) use ($class, $var){
+
+                    return new $class($object->$var);
+
+                }, $objects_receve->data);
+
+            }
+        }
+
+        return $objects_return;
+    }
+
+    /**
+     * Get Generic All object
+     *
+     * @param   string  $datas_receve  
+     * @param   string  $class 
+     * @return  object|array|null
+     */
+    public function resultGenericObject($datas_receve, $class)
+    {   
+        $objects_return = null;
+
+        if(!empty($datas_receve))
+        {
+            $objects_receve = json_decode($datas_receve);
+
+            if(is_object($objects_receve))
+            {
+                if (property_exists($objects_receve, 'erro') or 
+                    property_exists($objects_receve, 'errors')) {
+                    return $objects_return;
+                }
+
+                $objects_return = new $class($objects_receve);
+            }
+        }
+        
+        return $objects_return;
+    }
 }
